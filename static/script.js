@@ -21,13 +21,11 @@ function configureSummarizeButtons() {
 
 function summarizeButtonClick(button) {
   var url = button.href;
-  var loadingMsg = button.dataset.loading;
-  var errorMsg = button.dataset.error;
   var container = button.parentNode;
 
   container.classList.add('alert');
   container.classList.add('alert-warn');
-  container.innerHTML = loadingMsg;
+  container.innerHTML = kagi_strings.loading_summary;
 
   var request = new XMLHttpRequest();
   request.open('POST', url, true);
@@ -62,7 +60,7 @@ function summarizeButtonClick(button) {
     badAjax(this.status == 403);
     container.classList.remove('alert-warn');
     container.classList.add('alert-error');
-    container.innerHTML = errorMsg;
+    container.innerHTML = kagi_strings.error;
   }
 
   request.setRequestHeader('Content-Type', 'application/json');
