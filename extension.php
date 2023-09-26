@@ -5,6 +5,8 @@ class KagiSummarizerExtension extends Minz_Extension {
     $this->registerTranslates();
     $this->registerHook('entry_before_display', [$this, 'addSummarizeButton']);
     Minz_View::appendScript($this->getFileUrl('script.js', 'js'), false, false, false);
+    Minz_View::appendScript(_url('kagiSummarizer', 'kagiStrings'), false, true, false);
+    $this->registerViews();
     $this->registerController('kagiSummarizer');
   }
 
@@ -30,7 +32,10 @@ class KagiSummarizerExtension extends Minz_Extension {
       'params' => array(
         'id' => $entry->id()
     )));
-    $entry->_content('<p class="kagi-summary"><a data-loading="' . htmlspecialchars(_t('ext.kagiSummarizer.ui.loading_summary')) . '" data-error="' . htmlspecialchars(_t('ext.kagiSummarizer.ui.error')) . '" class="btn" href="' . $url .'">' . _t('ext.kagiSummarizer.ui.summarize_button') . '</a></p>' . $entry->content());
+    $entry->_content(
+      '<p class="kagi-summary"><a class="btn" href="' . $url .'">'
+      . _t('ext.kagiSummarizer.ui.summarize_button') . '</a></p>'
+      . $entry->content());
     return $entry;
   }
 }

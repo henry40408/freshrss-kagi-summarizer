@@ -1,12 +1,22 @@
 <?php
 
 class FreshExtension_kagiSummarizer_Controller extends Minz_ActionController {
+  public function kagiStringsAction() {
+    $this->view->kagi_strings = json_encode(array(
+      'loading_summary' => _t('ext.kagiSummarizer.ui.loading_summary'),
+      'error' => _t('ext.kagiSummarizer.ui.error')
+    ));
+    $this->view->_layout(false);
+    $this->view->_path('kagiSummarizer/strings.js');
+    header('Content-Type: application/javascript; charset=UTF-8');
+  }
+
   public function summarizeAction() {
     $this->view->_layout(false);
 
     $kagi_token = FreshRSS_Context::$user_conf->kagi_token;
 
-    if ($kagi_token === null || trim($kagi_token) ==='') {
+    if ($kagi_token === null || trim($kagi_token) === '') {
       echo json_encode(array(
         'response' => array(
           'output_text' => _t('ext.kagiSummarizer.ui.no_token_configured'),
@@ -34,14 +44,10 @@ class FreshExtension_kagiSummarizer_Controller extends Minz_ActionController {
       'Authorization: ' . $kagi_token
     ));
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($curl, CURLOPT_HEADER, true);
-
     $response = curl_exec($curl);
-    $header_size = curl_getinfo($curl, CURLINFO_HEADER_SIZE);
-    $response_body = substr($response, $header_size);
 
     echo json_encode(array(
-      'response' => json_decode($response_body),
+      'response' => json_decode($response),
       'status' => curl_getinfo($curl, CURLINFO_HTTP_CODE)
     ));
   }
