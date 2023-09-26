@@ -11,8 +11,6 @@ class KagiSummarizerExtension extends Minz_Extension {
   }
 
   public function handleConfigureAction() {
-    $this->registerTranslates();
-
     if (Minz_Request::isPost()) {
       $kagi_token = Minz_Request::param('kagi_token', '');
       $prefix = 'https://kagi.com/search?token=';
