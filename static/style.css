@@ -1,5 +1,5 @@
 div.kagi-summary { margin-top: 1em; }
-div.kagi-summary blockquote { margin-top: 1em; }
+div.kagi-summary blockquote { margin: 1em 0; }
 div.kagi-summary a { transform: scale(0.8); }
 div.kagi-summary.kagi-loading a { opacity: 0.5; }
 div.kagi-summary.kagi-loading a:hover { color: inherit; background-color: inherit; }
