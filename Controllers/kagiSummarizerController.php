@@ -15,6 +15,7 @@ class FreshExtension_kagiSummarizer_Controller extends Minz_ActionController {
     $this->view->_layout(false);
 
     $kagi_token = FreshRSS_Context::$user_conf->kagi_token;
+    $kagi_language = FreshRSS_Context::$user_conf->kagi_language;
 
     if ($kagi_token === null || trim($kagi_token) === '') {
       echo json_encode(array(
@@ -35,7 +36,10 @@ class FreshExtension_kagiSummarizer_Controller extends Minz_ActionController {
     }
 
     $entry_link = urlencode($entry->link());
-    $url = 'https://kagi.com/mother/summary_labs?summary_type=summary&url=' . $entry_link;
+    $url = 'https://kagi.com/mother/summary_labs'
+      . '?summary_type=' . Minz_Request::param('type')
+      . '&target_language=' . $kagi_language
+      . '&url=' . $entry_link;
 
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL, $url);
