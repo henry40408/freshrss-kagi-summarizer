@@ -42,7 +42,7 @@ class KagiSummarizerExtension extends Minz_Extension {
       )));
     $entry->_content(
       '<div class="kagi-summary"><a class="btn" href="' . $url_summary .'">'
-      . _t('ext.kagiSummarizer.ui.summarize_button') . '</a> '
+      . _t('ext.kagiSummarizer.ui.summarize_button') . '</a>'
       . '<a class="btn" href="' . $url_key_moments . '">'
       . _t('ext.kagiSummarizer.ui.key_moments_button') . '</a>'
       . '<p class="kagi-status hidden alert"></p>'
