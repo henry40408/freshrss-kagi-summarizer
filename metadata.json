@@ -2,7 +2,7 @@
   "name": "Kagi Summarizer",
   "author": "Rudis Muiznieks, Heng-Yi Wu",
   "description": "Add buttons to summarize articles with the Kagi Universal Summarizer.",
-  "version": "0.2-1",
+  "version": "0.2-2",
   "entrypoint": "KagiSummarizer",
   "type": "user"
 }
