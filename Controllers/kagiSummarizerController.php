@@ -21,8 +21,10 @@ class FreshExtension_kagiSummarizer_Controller extends Minz_ActionController {
       echo json_encode(array(
         'response' => array(
           'output_text' => _t('ext.kagiSummarizer.ui.no_token_configured'),
-          'error' => 'configuration'),
-        'status' => 200));
+          'error' => 'configuration',
+        ),
+        'status' => 200
+      ));
       return;
     }
 

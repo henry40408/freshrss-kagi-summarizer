@@ -37,6 +37,7 @@ return array(
         'tr' => 'Turkish',
         'uk' => 'Ukrainian',
         'zh' => 'Chinese (simplified)',
+        'zh-hant' => 'Chinese (traditional)',
       ),
     ),
     'ui' => array(

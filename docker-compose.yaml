@@ -1,0 +1,14 @@
+services:
+  freshrss:
+    image: linuxserver/freshrss:1.24.1
+    ports:
+      - 8080:80
+    environment:
+      - PUID=1000
+      - PGID=100
+    volumes:
+      - freshrss-config:/config
+      - .:/config/www/freshrss/extensions/freshrss-kagi-summarizer
+
+volumes:
+  freshrss-config: {}
