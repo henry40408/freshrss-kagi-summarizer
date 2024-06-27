@@ -1,3 +1,17 @@
+## Credits
+
+This is a fork from [https://code.sitosis.com/rudism/freshrss-kagi-summarizer](https://code.sitosis.com/rudism/freshrss-kagi-summarizer). Many thanks to Rudis Muiznieks for this awesome FreshRSS extension! I forked the repository to:
+
+- Figure out how a FreshRSS extension works.
+- Add Chinese (Traditional) as a target language.
+
+## Tracking Upstream
+
+- The main branch of this repository will be kept synchronized with the main branch of the original as soon as possible.
+- The version will be `[original version]-[derived version]`, e.g., 0.2-7 means the seventh version derived from 0.2 of the original repository.
+
+---
+
 # FreshRSS Kagi Summarizer
 
 Adds a "Summarize" button to the top of all entries that will fetch the summary of the entry using the [Kagi Universal Summarizer](https://kagi.com/summarizer/index.html).
